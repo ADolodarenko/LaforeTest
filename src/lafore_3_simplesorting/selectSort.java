@@ -59,7 +59,7 @@ class SelectSortApp
    {
    public static void main(String[] args)
       {
-         int maxSize = 100000;
+         int maxSize = 10000;
          ArraySel arr;
          arr = new ArraySel(maxSize);
    
@@ -75,7 +75,14 @@ class SelectSortApp
          DateFormat format = new SimpleDateFormat("ddMMyyyy HH:mm:ss");
    		 System.out.println(format.format(Calendar.getInstance().getTime()));
    
+   
+         long startTime = System.currentTimeMillis();
+   
          arr.selectionSort();
+   
+         long endTime = System.currentTimeMillis();
+   
+         System.out.println(endTime - startTime);
    
          System.out.println(format.format(Calendar.getInstance().getTime()));
 		  

@@ -90,7 +90,7 @@ class BubbleSortApp
    {
    public static void main(String[] args)
       {
-      int maxSize = 20;
+      int maxSize = 10000;
       ArrayBub arr;
       arr = new ArrayBub(maxSize);
 
@@ -107,8 +107,14 @@ class BubbleSortApp
       
       	 DateFormat format = new SimpleDateFormat("ddMMyyyy HH:mm:ss");
 		 System.out.println(format.format(Calendar.getInstance().getTime()));
-		  
+	
+		  long startTime = System.currentTimeMillis();
+		 
 		 arr.oddEvenSort();
+	
+		  long endTime = System.currentTimeMillis();
+	
+		  System.out.println(endTime - startTime);
 	
 		 System.out.println(format.format(Calendar.getInstance().getTime()));
 		 

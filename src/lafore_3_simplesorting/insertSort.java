@@ -123,11 +123,29 @@ class InsertSortApp
    {
    public static void main(String[] args)
       {
-         int maxSize = 10;
+         int maxSize = 10000;
          ArrayIns arr;
          arr = new ArrayIns(maxSize);
-   
-         arr.insert(10);
+	
+	
+		  for (int i = 0; i < maxSize; i++)
+		  {
+			  long value = (long) (Math.random() * (maxSize - 1));
+			  arr.insert(value);
+		  }
+	
+		  long startTime = System.currentTimeMillis();
+	
+		  arr.insertionSort();
+	
+		  long endTime = System.currentTimeMillis();
+	
+		  System.out.println(endTime - startTime);
+         
+		  
+         
+         
+         /*arr.insert(10);
          arr.insert(100);
          arr.insert(22);
          arr.insert(115);
@@ -135,7 +153,7 @@ class InsertSortApp
          arr.insert(15);
          arr.insert(22);
          
-         arr.noDups();
+         arr.noDups();*/
          
       }
    }
