@@ -31,6 +31,25 @@ class ArrayPar
          System.out.print(theArray[j] + " ");  // display it
       System.out.println("");
       }
+      
+      public long median()
+	  {
+	  	return getMedian(0, nElems - 1);
+	  }
+	  
+	  public long getMedian(int left, int right)
+	  {
+	  	int partition = partitionIt(left, right);
+	  	
+	  	if (partition == nElems/2)
+	  		return theArray[partition];
+	  	else
+	  		if (partition > nElems/2)
+	  			return getMedian(0, partition);
+	  		else
+	  			return getMedian(partition, nElems - 1);
+	  }
+   
 //--------------------------------------------------------------
     public int partitionIt(int left, int right)
        {
@@ -69,7 +88,7 @@ class PartitionApp
    {
    public static void main(String[] args)
       {
-      int maxSize = 2;             // array size
+      int maxSize = 10;             // array size
       ArrayPar arr;                 // reference to array
       arr = new ArrayPar(maxSize);  // create the array
 
@@ -86,9 +105,11 @@ class PartitionApp
       
       int size = arr.size();
                                     // partition array
-      int partDex = arr.partitionIt(0, size-1);
+      //int partDex = arr.partitionIt(0, size-1);
+	
+		  System.out.println(arr.median());
 
-      System.out.println("Partition is at index " + partDex);
+      //System.out.println("Partition is at index " + partDex);
       arr.display();                // display partitioned array
       }  // end main()
    }  // end class PartitionApp
