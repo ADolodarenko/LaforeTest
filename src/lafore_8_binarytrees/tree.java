@@ -1,3 +1,4 @@
+package lafore_8_binarytrees;
 // tree.java
 // demonstrates binary tree
 // to run this program: C>java TreeApp
