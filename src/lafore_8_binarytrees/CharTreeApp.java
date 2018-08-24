@@ -10,7 +10,8 @@ public class CharTreeApp
 {
     public static void main(String[] args) throws IOException
     {
-        CharTree tree = getEntireCharTree(getTreeArray());
+        //CharTree tree = getEntireCharTree(getTreeArray());
+		CharTree tree = getEntireBalancedCharTree(getTreeArray());
 
         if (tree != null)
             tree.displayTree();
@@ -37,6 +38,44 @@ public class CharTreeApp
 
         return tree;
     }
+    
+    private static CharTree getEntireBalancedCharTree(CharTree[] trees)
+	{
+		if (trees == null || trees.length == 0)
+			return null;
+		
+		int treesQuantity = trees.length;
+		
+		while (treesQuantity > 1)
+		{
+			CharTree parentTree = null;
+			
+			for (int i = 0; i < trees.length; i++)
+			{
+				if (trees[i] != null)
+				{
+					if (parentTree == null)
+					{
+						parentTree = new CharTree(new CharNode('+'));
+						parentTree.getRoot().setLeftChild(trees[i].getRoot());
+						
+						trees[i] = parentTree;
+					}
+					else
+					{
+						parentTree.getRoot().setRightChild(trees[i].getRoot());
+						
+						trees[i] = null;
+						treesQuantity--;
+						
+						parentTree = null;
+					}
+				}
+			}
+		}
+		
+		return trees[0];
+	}
 
     private static CharTree[] getTreeArray() throws IOException
     {
