@@ -154,6 +154,38 @@ class Tree
       // (successor cannot have a left child)
       return true;                                // success
       }  // end delete()
+//--------------------------------------------------------------
+	   //Removes the node with the maximum key. This method is designed for the PriorityQ class.
+	public void removeMax()
+	{
+		Node parent = null;
+		Node current = root;
+		Node rightChild = current.rightChild;
+
+		while (rightChild != null)
+		{
+			parent = current;
+			current = rightChild;
+			rightChild = current.rightChild;
+		}
+
+		if (current.leftChild == null)
+		{
+			if (current == root)
+				root = null;
+			else
+				parent.rightChild = null;
+		}
+		else
+		{
+			if (current == root)
+				root = current.leftChild;
+			else
+				parent.rightChild = current.leftChild;
+		}
+	}
+
+
 // -------------------------------------------------------------
    // returns node with next-highest value after delNode
    // goes to right child, then right child's left descendents

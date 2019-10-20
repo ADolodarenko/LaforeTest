@@ -64,7 +64,7 @@ class LinkList
       System.out.println("");
       }
 // -------------------------------------------------------------
-   }  // end class lafore_5_linkedlists.LinkList
+   }
 ////////////////////////////////////////////////////////////////
 class LinkListApp
    {
